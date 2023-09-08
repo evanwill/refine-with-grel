@@ -1,18 +1,20 @@
 ---
-title: Lesson Template
+title: "OpenRefine: Advanced Data Transformation with GREL Expressions"
 layout: lesson-content
 ---
 
-A minimal Jekyll theme with sidebar content nav for creating lesson and workshop websites using Markdown.
 
-{% include figure.html img="uidaho-workshop.jpg" alt="intro image here" caption="Library workshop" width="75%" %}
+{% include figure.html img="jj-ying-WmnsGyaFnCQ-unsplash.jpg" alt="swished together white rolls of paper create maze-like pattern" %}
 
-*Add your workshop abstract here!*
+This workshop will delve into using GREL expressions in OpenRefine, introducing strategies and features to do advanced wrangling of your data. 
+Please come to the session with basic familiarity with using OpenRefine.
 
-Learn how to create a super quick easy website for a workshop by writing a few markdown files! 
-Host it for free on GitHub with gh-pages, and share!
-Fun!
+For an introduction to OpenRefine (including installation), see my other workshop [Get Started with OpenRefine: Explore, Clean, and Transform your Data!](https://evanwill.github.io/openrefine-b/).
+
+This workshop was written with OpenRefine version 3.7.4--if you have an older version, please [update](https://evanwill.github.io/openrefine-b/content/2-start.html#update-your-version-of-openrefine).
 
 {% include toc.html %}
+
+------
 
 {% include template/credits.html %}

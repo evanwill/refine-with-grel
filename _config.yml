@@ -11,25 +11,26 @@
 # SITE SETTINGS
 #
 # title appears in the header
-title: Learn-Static Lesson Template
+title: Grrr-GREL!
 # title-icon appears in the header to give some pizazz (leave blank for none)
 # choose from Bootstrap Icons in _includes/bootstrap-icons
 # find names on https://icons.getbootstrap.com/ (or look in "_includes/bootstrap-icons")
 # some options: code-slash file-code gear tools lightblub book bookmark-star
-title-icon: code-slash
+title-icon: gem
 # description appears in sidebar footer
-description: "Create a lesson website with markdown"
-# keywords for meta tags used by search engines
-keywords: "workshops, websites, gh-pages, jekyll"
-# image for meta tags, will appear when sharing link on social media
-featured-image: "/images/uidaho-workshop.jpg"
+# these do not visibility appear on the pages, but used for SEO
+description: "A workshop delving into using GREL expressions in OpenRefine, introducing strategies and features to do advanced wrangling of your data."
+keywords: "OpenRefine, academic workshop, data transformation"
+# featured-image is added to metadata tags for social media sharing
+# use a relative path to image in this repository or full URL
+featured-image: "/images/jj-ying-WmnsGyaFnCQ-unsplash.jpg"
 
 # author name, displayed in credits
 author: evanwill
 # year or date published, displayed in sidebar
-publication_year: 2022
+publication_year: 2023
 # location of code, the full url to your github repository
-source-code: https://github.com/learn-static/lesson-template
+source-code: https://github.com/evanwill/refine-grel
 # content license (typically "cc by-sa"), displayed in sidebar
 content_license: "CC BY-SA"
 # URL to the content license
