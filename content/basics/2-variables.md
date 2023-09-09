@@ -1,5 +1,5 @@
 ---
-section: Expression Basics
+section: Expressions
 nav_order: 2
 title: GREL Variables
 nav: Variables
