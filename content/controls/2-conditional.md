@@ -5,43 +5,88 @@ title: Conditionals (If Statements)
 nav: Conditionals
 ---
 
-## conditional
+Conditionals allow you to test using a condition, then apply different expressions or outputs depending on the result.
+A conditional expression looks like:
 
-if(expression o, expression eTrue, expression eFalse)
+`if(expressionTest, expressionTrue, expressionFalse)`
 
-nested if 
+The first argument is an expression that evaluates to true/false.
+If the result for the cell is true, then the second argument will be used to output a value.
+Otherwise, the third argument will be used. 
 
-Evaluating conditions uses symbols such as <, >, *, /, etc. To check whether two objects are equal, use two equal signs (value=="true").
+*Note: if your conditional expression doesn't actually return true/false, the window will not display an syntax error and GREL assumes it is false!*
 
-`if(row.starred, "yes", "no")`
+The arguments can be string values or complete expressions providing flexibility to create complex outputs.
 
-Compare two columns - Create new "equal" column using expression:
-`if(cells["column1"].value == cells["column2"].value, "True", "False")`
+{% include alert.html text="Keep in mind that most of these outputs can be achieved by using faceting/filtering and applying different transformations to the subsets. 
+Take a pragmatic approach to how difficult the expression is to write vs using facets. 
+However, having the operation represented as a conditional expression may help make your processing more reuseable." color="secondary" %}
 
-filter(e1, v, e test)
+## Example Flowchart
 
+Let's visualize this simple conditional, if the length of the cell's value is more than 10 characters, output "Big", otherwise output "Small": `if(value.length() > 10, 'Big', 'Small')`
 
-custom text facet of # of blank cells in a row
-filter(row.columnNames,cn,isBlank(cells[cn].value)).length()
+{% include figure.html img="conditional-example.svg" alt="flow diagram showing if(value.length() > 10, 'Big', 'Small)" %}
 
+## Common Conditions
 
-## tests 
+- To test numbers you can use operators such as `<` or `>`, e.g. `value.length() > 10`.
+- To test if two values are equal use double equal signs `==`, e.g. `value == "Dogs"`.
+- Test if the row is starred or flagged use built in variables, e.g. `row.starred` or `row.flagged`.
+- Test the cell type with `isBlank(value)`, `isNonBlank(value)`, `isNull(value)`, `isNotNull(value)`, `isNumeric(value)`. This can be a useful check to avoid errors in a further expression.
+- Test if the array contains a specific value using `inArray(a, s)`
+- Test string contents using:
+    - `startsWith()` -- check using string only
+    - `endsWith()` -- check using string only
+    - `contains()` -- check using string or regex
+    - `indexOf()` -- if it finds a match of your substring it returns the index number of the first instance, otherwise `-1`.
+    - `lastIndexOf()`-- if it finds a match of your substring it returns the index number of the last instance, otherwise `-1`. 
 
-isBlank(e), isNonBlank(e), isNull(e), isNotNull(e), isNumeric(e), isError(e)
+## Boolean Operators
 
-array tests 
+You can combine conditions with [Boolean functions](https://openrefine.org/docs/manual/grelfunctions#boolean-functions) to build more complex tests, using `and()`, `or()`, `not()`, or `xor()`.
+It is easiest to string boolean conditions together using dot notation. 
+Each boolean function will contain an argument that is an expression that evaluates to true/false.
 
-inArray(a, s)
+- example: `if(isNonBlank(value).and(value.startsWith("A")),"y","n")`
 
-string tests
+## Nested Conditions
 
-startsWith()
-endsWith()
-contains()
+Multiple conditional can be nested to create elsif or switch type flow. 
+Use white space to help make the expression more readable!
 
-indexOf()
-lastIndexOf()
+```
+if(cells["format"].value == 'image/jpeg', 'https://www.example.com/images/' + value,
 
-## boolean
+    if(cells["format"].value == 'application/pdf', 'https://www.example.com/documents/' + value,
 
-add Boolean functions .and(), .or(), .not(), .xor()
+    if(cells["format"].value == 'video/mp4', 'https://youtu.be/' + value,
+
+null)))
+```
+
+## Filter 
+
+Filter is a function to subset an array based on conditions.
+A filter expression looks like:
+
+`filter(expression, v, expressionTest)`
+
+The first argument is an express to create your array.
+The second argument is a variable name, this can be anything, to be used represent each array value in the next expression.
+The third argument is an expression, using the variable name, that evaluates to true/false.
+
+Each item in the array will be tested using the condition.
+If true, the item will be added to a new output array. 
+
+For example, remove "dogs" from list of subject terms in a multi-valued field: `filter(value.split(";"),v,v.indexOf("dogs") < 0).join(";")`.
+
+## Examples
+
+- Transform your stars into a column 
+    - Create new "starred" column using expression: `if(row.starred,"True", "False")`
+    - Create new "issues" column using expression: `if(row.starred.and(row.flagged),"True","False")` 
+- Compare two columns 
+    - Create new "equal" column using expression: `if(cells["column1"].value == cells["column2"].value, "True", "False")`
+- Evaluate the number of blank cells in a row
+    - Create new custom numeric facet using expression: `filter(row.columnNames,c,isBlank(cells[c].value)).length()`
