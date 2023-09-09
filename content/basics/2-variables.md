@@ -13,7 +13,7 @@ The most commonly used [variables](https://openrefine.org/docs/manual/expression
 - `cells` -- an array of all the cells of the current row. 
     - Use bracket or dot notation to access values from other columns.
     - e.g. `cells["example_col"].value` or `cells.example_col.value`.
-- `rowIndex` -- index number of the current row, starting from 0.
+- `rowIndex` -- index number of the current row, starting from 0 (or `row.index`).
 
 Less commonly used: 
 

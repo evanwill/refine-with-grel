@@ -5,6 +5,5 @@ title: GREL Controls
 # nav: Introduction
 ---
 
-these help us start to string together more complex expressions
-
-important: controls can't use dot notation!
+Controls are GREL features that allow us to combine functions with branching and iteration to build more complex expressions. 
+They "control" if functions run or not, allowing you to apply transformations or move data based on criteria or tests.

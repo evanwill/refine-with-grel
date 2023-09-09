@@ -5,37 +5,49 @@ title: Array Functions
 nav: Arrays
 ---
 
-basics 
+In Refine an *Array*{:.term} is data structure representing an ordered set of values, e.g. `["example", "two", "three"]`.
+However, *cells can not directly store an array*.
+Instead, you will have to split a value to create an array, use functions to manipulate the data, and then join the array back into a string. 
+This is a surprisingly powerful approach for wrangling data!
 
-Create an array from any string by using the `split(value, expression)` function. 
-The expression is the character or pattern you want to split the string up on, often a new line or a deliminator in a list. 
+## Split
 
-For example, split on semi-colon `value.split(";")` (a classic multi-valued cell list), split on spaces `value.split(" ")` (basic word array), or split on a new line `value.split(/\n/)` (lines of a text).
+For example, create an array by splitting:
 
-Once the cell is an array, it can be rearranged and sliced in many ways with [array functions](https://openrefine.org/docs/manual/grelfunctions#array-functions).
-Finally, reconstitute the string by using `join()` on the array (usually using the same deliminator that you used to split!). 
+- a multi-valued cell on a separator or deliminator character, e.g. semi-colon `value.split(";")` or pipe `value.split("|")`
+- a string based on a meaningful feature or pattern, e.g. space for basic word `value.split(" ")`, white space `value.split(/\s/)`, or new line `value.split(/\n/)`
+- a string based on pattern of the numbers of characters, e.g. `value.splitByLengths(3,3,4)` (note: this will throw out characters beyond the total)
 
+Once the cell is an array, it can be rearranged and sliced in many ways using [array functions](https://openrefine.org/docs/manual/grelfunctions#array-functions).
 
-split()
-splitByLengths(s, n1, n2, ...) (if there isn't a character separator, but you can break it based on some pattern in number of characters)
+## Bracket Notation
 
-join()
+The values can be accessed in the array using bracket notation. 
+The index starts at 0, e.g. first item `value.split(";")[0]` or third item `value.split(";").sort()[2]`.
+Alternatively, you can use negative numbers to count backward in the array, e.g. last item `value.split(";")[-1]` or third to last item `value.split(";").sort()[-3]`.
 
-bracket notation
-Remember that array objects are indexed starting at 0. 
+Bracket notation can also be used to select a range of items (a short cut for `slice()`), e.g. `value.split(";").sort()[2,4]`.
 
-length()
+## Join 
 
-manipulate 
+If the results of your expression are an array, you will need to reconstitute it into a string using `join()`. 
+This could be the same pattern that you used to split, a new character to create a string, or unique deliminator useful for future splits, e.g. `.join("|||")` or `.join(";")`. 
 
-reverse()
+## Examples of Common Array Functions
 
-sort()
+For example, if we had a column with multi-valued cells representing lists of items like "dogs;cats;muffins;cats": 
 
-slice()
+- `length()` -- count the number of items in the array, returns a number.
+    - `value.split(";").length()` --> 4
+- `sort()` -- returns the array sorted, ascending order, case-sensitive with uppercase first and lowercase second.
+    - `value.split(";").sort().join(";")` --> "cats;cats;dogs;muffins"
+- `reverse()` -- returns the array in reversed order.
+    - `value.split(";").reverse().join(";")` --> "cats;muffins;cats;dogs"
+- `uniques()` -- returns only the unique values, removing duplicates.
+    - `value.split(";").uniques().join(";")` --> "dogs;cats;muffins"
+- `slice()` -- returns an array of items starting from the first argument (including it) to the second number (no including it).
+    - Remove first item: `value.split(";").slice(1).join(";")` --> "cats;muffins;cats"
+    - Remove last item: `value.split(";").slice(-1).join(";")` --> "dogs;cats;muffins"
+    - Remove first and last: `value.split(";")[1,-1].join(";")` --> "cats;muffins"
+    - Get the second and third items: `value.split(";").slice(1,3).join(";")` --> "cats;muffins"
 
-uniques()
-
-tests
-
-inArray(a, s)

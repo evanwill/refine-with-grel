@@ -25,10 +25,23 @@ custom text facet of # of blank cells in a row
 filter(row.columnNames,cn,isBlank(cells[cn].value)).length()
 
 
-## boolean
-
-add Boolean functions .and(), .or(), .not(), .xor()
-
 ## tests 
 
 isBlank(e), isNonBlank(e), isNull(e), isNotNull(e), isNumeric(e), isError(e)
+
+array tests 
+
+inArray(a, s)
+
+string tests
+
+startsWith()
+endsWith()
+contains()
+
+indexOf()
+lastIndexOf()
+
+## boolean
+
+add Boolean functions .and(), .or(), .not(), .xor()
