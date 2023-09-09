@@ -11,6 +11,8 @@ This workshop was written with OpenRefine version 3.7.4--if you have an older ve
 
 ## License
 
+Workshop content is licensed CC BY-SA, by Evan Will.
+
 Learn-Static documentation and general web content is licensed [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/).
 Learn-Static code is licensed [MIT](https://github.com/learn-static/lesson-template/blob/main/LICENSE). 
 This license does not include external dependencies included in the "assets/lib" directory, which are covered by their individual licenses.
