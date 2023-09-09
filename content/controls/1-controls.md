@@ -2,7 +2,7 @@
 section_id: Controls
 nav_order: 4
 title: GREL Controls
-nav: Introduction
+# nav: Introduction
 ---
 
 these help us start to string together more complex expressions

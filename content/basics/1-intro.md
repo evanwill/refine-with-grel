@@ -2,7 +2,7 @@
 section_id: Expressions
 nav_order: 2
 title: Expressions Basics
-nav: Introduction
+#nav: Introduction
 ---
 
 To flexibly extend Refine's built in data exploration and transformation features, the system supports the use of *Expressions*{:.term} in a variety of contexts.
@@ -30,7 +30,7 @@ Following this link later will re-open the project with the set of filters you h
 
 ## Expression Editor
 
-The interface provides an "Expression Editor" with features to help write and apply transformations to your data.
+Refine's interface provides an "Expression Editor" with features to help write and apply transformations to your data.
 
 {% include figure.html img="expression-editor.png" alt="openrefine interface window showing expression editor for custom text transform" %}
 
