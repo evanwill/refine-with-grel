@@ -6,6 +6,8 @@ title: Expressions Basics
 ---
 
 To flexibly extend Refine's built in data exploration and transformation features, the system supports the use of *Expressions*{:.term} in a variety of contexts.
+Unlike a spreadsheet' formulas that are stored in a cell and update dynamically, Refine's expressions are applied as an operation iterating over the rows of the data to generate a result.
+
 The most common use is when transforming the cells in a column or creating a new column:
 
 - *Edit cells > Transform...*{:.ui-item}
@@ -21,7 +23,7 @@ Less common uses:
 
 {% capture view %}
 **Facet and filter vs. Transform:**
-Remember that facets and filters do not change the data, *only your current view*.
+Remember that facets and filters do not change the data, *only your current view and the subset your are working with*.
 If you close the window, your filters and facets will go away, they aren't saved.
 To save the current state, you can click *"Permalink"*{:.ui-item} near the project name, then copy the URL from your browser.
 Following this link later will re-open the project with the set of filters you had applied (restoring the view, but not state of the data!).
@@ -31,11 +33,12 @@ Following this link later will re-open the project with the set of filters you h
 ## Expression Editor
 
 Refine's interface provides an "Expression Editor" with features to help write and apply transformations to your data.
+This is a unique tool that makes Refine different than scripting languages or databases.
 
 {% include figure.html img="expression-editor.png" alt="openrefine interface window showing expression editor for custom text transform" %}
 
 - *Language*{:.ui-item}
-    - **General Refine Expression Language (GREL)** -- a small set of functions specifically designed for data transformation puzzles in Refine. It is a good introduction to programming concepts because it is not large you can learn it!
+    - **General Refine Expression Language (GREL)** -- a small set of functions specifically designed for data transformation puzzles in Refine. It is a good introduction to programming concepts because it is not large, you can learn it *all* and apply it in powerful ways!
     - **Python / Jython** -- Python implemented on the Java VM. You can use python code and standard library, and send the result to the cell with `return`. Limitations: out of date Python 2 which was sunsetted in 2020.
     - **Clojure** -- Lisp-family language implemented on Java VM. Limitations: not commonly used, little documentation. 
 - *Expression*{:.ui-item} -- text box a message to the right will say if there is a syntax error.

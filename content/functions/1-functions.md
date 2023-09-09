@@ -5,11 +5,11 @@ title: GREL Functions
 #nav: Introduction
 ---
 
-GREL *Functions*{:.term} are written in [camelCase](https://en.wikipedia.org/wiki/Camel_case) followed by parentheses containing a coma separated list of the function's arguments representing the inputs or options.
+GREL *Functions*{:.term} are written in [camelCase](https://en.wikipedia.org/wiki/Camel_case) followed by parentheses containing a coma separated list of the function's arguments (representing the inputs or options).
 They can be used in two forms:
 
 - Parentheses: `functionName(argument0, argument1, argument2, etc)` -- as given in the documentation.
-- Dot notation: `argument0.functionName(argument1, argument2, etc)` -- more commonly used in practice.
+- Dot notation: `argument0.functionName(argument1, argument2, etc)` -- commonly used in practice.
 
 The *arguments*{:.term} in a function could be a variable, a string (wrapped in quotes `"example"` or `'example'`), a regex (wrapped in forward slash `/regex/`), another function, or nothing at all.
 

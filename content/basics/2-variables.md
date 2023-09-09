@@ -22,6 +22,8 @@ Less commonly used:
 - `row.record` -- access [fields for record](https://openrefine.org/docs/manual/expressions#record) containing the current row.
 - `cell.recon` -- access [reconciliation fields](https://openrefine.org/docs/manual/expressions#reconciliation) for the current cell.
 
+{% include figure.html img="refine-variables.png" alt="row of spreadsheet table showing cell labelled with 'value' and 'cells[two].value' in the next cell to demonstrate variables" %}
+
 ## Example
 
 GREL uses `+` to concatenate values. 
