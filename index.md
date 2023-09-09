@@ -12,7 +12,7 @@ For an introduction to OpenRefine (including installation), see my other worksho
 
 This workshop was written with OpenRefine version 3.7.4--if you have an older version, please [update](https://evanwill.github.io/openrefine-b/content/2-start.html#update-your-version-of-openrefine).
 
-Note: software interface options, such as menus, are highlighted using a dashed underline. Code that can be copied is highlighted in pink. 
+Note: software interface options, such as menus, are highlighted using a *dashed underline*{:.ui-item}. Code that can be copied is highlighted in `pink`. 
 
 {% include toc.html %}
 
