@@ -1,7 +1,8 @@
 ---
-nav_order: 1
+section: Introduction
+nav_order: 2
 title: The Strategy (and Art) of Refine
-nav: Strategies
+nav: Strategy
 ---
 
 OpenRefine is a unique data wrangling tool that presents a flexible interface unlike traditional spreadsheets or databases.
