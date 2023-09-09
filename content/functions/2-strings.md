@@ -25,4 +25,4 @@ GREL provides a variety of functions to manipulate and clean up string values.
     - just beginning of the values: `value.slice(0,5)`
     - combining multiple columns: `value.trim().toLowercase() + " " + cells["example"].value.trim().toLowercase()`
 - Create a new column as a unique id with leading zeros: `"row_id_" + "0000"[0,4-length(row.index +1)] + (row.index +1)`
-- Apply title case with hyphenated names: `value.replace("-"," || ").toTitlecase().replace(" || ","-")`
+- Apply title case with hyphenated names: `value.replace("-"," || ").toTitlecase().replace(" || ","-")` (notice the strategic replace, use a temporary string that will be unique in the data to avoid unintended consequences!)

@@ -6,7 +6,7 @@ title: Expressions Basics
 ---
 
 To flexibly extend Refine's built in data exploration and transformation features, the system supports the use of *Expressions*{:.term} in a variety of contexts.
-Unlike a spreadsheet' formulas that are stored in a cell and update dynamically, Refine's expressions are applied as an operation iterating over the rows of the data to generate a result.
+Unlike a spreadsheet formulas that are stored in a cell and update dynamically, Refine's expressions are applied as an operation iterating over the rows of the data and outputting a result.
 
 The most common use is when transforming the cells in a column or creating a new column:
 

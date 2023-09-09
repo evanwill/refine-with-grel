@@ -13,11 +13,13 @@ They can be used in two forms:
 
 The *arguments*{:.term} in a function could be a variable, a string (wrapped in quotes `"example"` or `'example'`), a regex (wrapped in forward slash `/regex/`), another function, or nothing at all.
 
-Multiple functions can be strung together or nested to carry out complex operations.
+Multiple functions can be nested in the arguments or strung together with dot notation to carry out complex operations.
 
 {% include alert.html text="**Readability:** Generally, dot notation can make reading a series of functions applied in sequence easier. White space is ignored in expressions, so use space to make your functions easier to read." color="warning" %}
 
 ## Examples
+
+These examples demonstrate writing functions with parentheses vs. dot notation. 
 
 Count the number of characters in the cell:
 

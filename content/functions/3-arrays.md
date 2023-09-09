@@ -6,8 +6,9 @@ nav: Arrays
 ---
 
 In Refine an *Array*{:.term} is data structure representing an ordered set of values, e.g. `["example", "two", "three"]`.
-However, *cells can not directly store an array*.
-Instead, you will have to split a value to create an array, use functions to manipulate the data, and then join the array back into a string. 
+
+However, **cells can not directly store an array**.
+Instead, you will have to split a value to create an array, use [array functions](https://openrefine.org/docs/manual/grelfunctions#array-functions) to manipulate the data, and then join the array back into a string. 
 This is a surprisingly powerful approach for wrangling data!
 
 ## Split
@@ -18,11 +19,9 @@ For example, create an array by splitting:
 - a string based on a meaningful feature or pattern, e.g. space for basic word `value.split(" ")`, white space `value.split(/\s/)`, or new line `value.split(/\n/)`
 - a string based on pattern of the numbers of characters, e.g. `value.splitByLengths(3,3,4)` (note: this will throw out characters beyond the total)
 
-Once the cell is an array, it can be rearranged and sliced in many ways using [array functions](https://openrefine.org/docs/manual/grelfunctions#array-functions).
-
 ## Bracket Notation
 
-The values can be accessed in the array using bracket notation. 
+The individual values in the array can be accessed using an index number in bracket notation. 
 The index starts at 0, e.g. first item `value.split(";")[0]` or third item `value.split(";").sort()[2]`.
 Alternatively, you can use negative numbers to count backward in the array, e.g. last item `value.split(";")[-1]` or third to last item `value.split(";").sort()[-3]`.
 
@@ -30,8 +29,11 @@ Bracket notation can also be used to select a range of items (a short cut for `s
 
 ## Join 
 
-If the results of your expression are an array, you will need to reconstitute it into a string using `join()`. 
+Some expressions, such as using an index number or length, will result in a regular string value ready to go into the cell. 
+However, if the result of your expression is an array, you will need to reconstitute it into a string using `join()`. 
 This could be the same pattern that you used to split, a new character to create a string, or unique deliminator useful for future splits, e.g. `.join("|||")` or `.join(";")`. 
+
+If you forget to add the join, the result of the transformation will be an error. Depending on what "On error" option you chose, it may not be clear that your expression did not do anything!
 
 ## Examples of Common Array Functions
 

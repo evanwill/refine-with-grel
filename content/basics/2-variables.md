@@ -27,9 +27,9 @@ Less commonly used:
 ## Example
 
 GREL uses `+` to concatenate values. 
-Use quotes around string values you want to add, e.g. `+ "-example"`.
+Use quotes around string values you want to add, e.g. `value + "-example"`.
 
-Let's combine the values from different columns to create a unique id.
+Let's combine the values from different columns to create a unique id:
 
 - *Edit column > Add column based on this column...*{:.ui-item}
 - Name the column "newid"
