@@ -9,13 +9,16 @@ In Refine an *Array*{:.term} is data structure representing an ordered set of va
 
 However, **cells can not directly store an array**.
 Instead, you will have to split a value to create an array, use [array functions](https://openrefine.org/docs/manual/grelfunctions#array-functions) to manipulate the data, and then join the array back into a string. 
-This is a surprisingly powerful approach for wrangling data!
+
+If you think of the patterns in your strings as potential chunks in an array, this becomes a surprisingly powerful approach for wrangling data!
+Puzzles like getting the last word from a the sentence, the stuff after the coma, the unique words, or the filename from a URL become much easier.
 
 ## Split
 
+Since cells do not contain arrays, we start by strategically splitting the value into parts.
 For example, create an array by splitting:
 
-- a multi-valued cell on a separator or deliminator character, e.g. semi-colon `value.split(";")` or pipe `value.split("|")`
+- a multi-valued cell on a separator or deliminator character, e.g. semicolon `value.split(";")` or pipe `value.split("|")`
 - a string based on a meaningful feature or pattern, e.g. space for basic word `value.split(" ")`, white space `value.split(/\s/)`, or new line `value.split(/\n/)`
 - a string based on pattern of the numbers of characters, e.g. `value.splitByLengths(3,3,4)` (note: this will throw out characters beyond the total)
 
@@ -39,17 +42,16 @@ If you forget to add the join, the result of the transformation will be an error
 
 For example, if we had a column with multi-valued cells representing lists of items like "dogs;cats;muffins;cats": 
 
-- `length()` -- count the number of items in the array, returns a number.
-    - `value.split(";").length()` --> 4
-- `sort()` -- returns the array sorted, ascending order, case-sensitive with uppercase first and lowercase second.
-    - `value.split(";").sort().join(";")` --> "cats;cats;dogs;muffins"
-- `reverse()` -- returns the array in reversed order.
-    - `value.split(";").reverse().join(";")` --> "cats;muffins;cats;dogs"
-- `uniques()` -- returns only the unique values, removing duplicates.
-    - `value.split(";").uniques().join(";")` --> "dogs;cats;muffins"
-- `slice()` -- returns an array of items starting from the first argument (including it) to the second number (no including it).
-    - Remove first item: `value.split(";").slice(1).join(";")` --> "cats;muffins;cats"
-    - Remove last item: `value.split(";").slice(-1).join(";")` --> "dogs;cats;muffins"
-    - Remove first and last: `value.split(";")[1,-1].join(";")` --> "cats;muffins"
-    - Get the second and third items: `value.split(";").slice(1,3).join(";")` --> "cats;muffins"
-
+| Description | Expression | Output |
+| --- | --- | --- |
+| `split()` creates an array | `value.split(";")` | [ "dogs", "cats", "muffins", "cats" ] |
+| `length()` count the number of items in the array | `value.split(";").length()` | 4 |
+| `sort()` returns the array sorted, ascending order, case-sensitive with uppercase first and lowercase second | `value.split(";").sort().join(";")` | "cats;cats;dogs;muffins" |
+| `reverse()` returns the array in reversed order | `value.split(";").reverse().join(";")` | "cats;muffins;cats;dogs" |
+| `uniques()` returns only the unique values, removing duplicates | `value.split(";").uniques().join(";")` | "dogs;cats;muffins" |
+| `slice()` returns an array of items starting from the first argument (including it) to the second number (no including it). | `value.split(";").slice(n, n)` <br>or bracket `value.split(";")[n, n]` | |
+| Remove first item | `value.split(";").slice(1).join(";")` | "cats;muffins;cats" |
+| Remove last item | `value.split(";").slice(0,-1).join(";")` | "dogs;cats;muffins" |
+| Remove first and last | `value.split(";")[1,-1].join(";")` | "cats;muffins" |
+| Get the second and third items | `value.split(";").slice(1,3).join(";")` | "cats;muffins" |
+{:.table .table-bordered}
