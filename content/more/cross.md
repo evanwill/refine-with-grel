@@ -5,22 +5,33 @@ title: Cross Function
 nav: Cross
 ---
 
-cross
+The cross function retrieves data from another Refine project on your computer based on a common column. 
+Keep in mind cross can't fuzzy match, and unlike reconciliation or clustering there isn't an interface to help manually select matches, so cross depends on clean key columns. 
 
-https://github.com/OpenRefine/openrefine.org/issues/214
+The function looks like:
 
-No fuzzy match (this isn't reconciliation or clustering) https://okfnlabs.org/reconcile-csv/
-Work on a clean key column first 
+`cross(cell, projectName, columnName)`
 
-## Cross function
+The second argument is the exact name of another project on your computer and the third argument is the exact name of column in that project. 
+To do a lookup with in the current project, you can give `""` for the second argument. 
 
-Use `cross` to retrieve columns from other OpenRefine projects based on a common column. 
+The cross will return an array that is the `row` objects for any matches between the current cell and the key column.
 
-1. Open the two projects you want to join
-2. Identify the common column to be used as a key. Ensure that it is a unique identifier, or cross won't work how you expect. You can create a new unique column on both projects by adding an index number an existing common column (on common column > Add column based on this column... > `value + "-" + row.index` ).
-3. On the project where you want to import values, go to the key column you identified, and Add column based on this column...
-4. In the expression window, put: `cell.cross("name_of_other_project", "name_of_key_column").cells["name_of_column_you_want_to_import"].value[0]`
+## Use Examples
 
-You should have a new column that has the correct values from the other project.
+Common use would be to take the first match and bring in a value from a column in the other table, which looks like:
 
-https://github.com/OpenRefine/OpenRefine/wiki/Recipes#combining-datasets
+`cell.cross("other_project", "key_column")[0].cells["column_name"].value`
+
+To access values from multiple columns: 
+
+`with(cell.cross("other_project", "key_column")[0], a, a.cells["col1"].value + ";" + a.cells["col2"].value)`
+
+Because cross returns an array of row objects, you could do more complicated look ups as well. 
+For example, to access multiple matches, add a forEach:
+
+`forEach(cell.cross("other_project", "key_column"), r, r.cells["column_name"].value).join(";")`
+
+For multiple matches, with multiple columns: 
+
+`forEach(cell.cross("other_project", "key_column"), r, forEach("colname1|colname2|colname3".split("|"), c, r.cells[c].value).join(";")).join("|")`
