@@ -33,7 +33,7 @@ Following this link later will re-open the project with the set of filters you h
 ## Expression Editor
 
 Refine's interface provides an "Expression Editor" with features to help write and apply transformations to your data.
-This is a unique tool that makes Refine different than scripting languages or databases.
+This is a unique tool that makes Refine different than scripting languages or databases, giving you a visual interactive way to build up and test your expression while previewing the results.
 
 {% include figure.html img="expression-editor.png" alt="openrefine interface window showing expression editor for custom text transform" %}
 
@@ -42,11 +42,12 @@ This is a unique tool that makes Refine different than scripting languages or da
     - **Python / Jython** -- Python implemented on the Java VM. You can use python code and standard library, and send the result to the cell with `return`. Limitations: out of date Python 2 which was sunsetted in 2020.
     - **Clojure** -- Lisp-family language implemented on Java VM. Limitations: not commonly used, little documentation. 
 - *Expression*{:.ui-item} -- text box a message to the right will say if there is a syntax error.
-- *Preview*{:.ui-item} -- see live preview of expression, help testing and debugging expression, keep in mind it is only first 10 rows (your issue could be later in data).
+- *Preview*{:.ui-item} -- see live preview of expression, help testing and debugging expression, keep in mind it is only first 10 rows (your issue could be later in data). If the preview isn't enough information, don't hesitate to just run the operation and explore the results--you can always easily Undo/Redo!
 - *History*{:.ui-item} -- operations you have recently used.
 - *Starred*{:.ui-item} -- bookmark your operations! Save commonly used expressions that you can edit to quickly re-use.
 - *Help*{:.ui-item} -- internal docs for quick reference while you are writing.
 - *On error*{:.ui-item} -- this is important to understand implications! For many expressions any cell blank value will result in an error, leaving the resulting cell unexpectedly blank. 
 
-{% capture check %}**Coherence Checks:** Once you click "okay" the operation will run--watch for the little yellow notification at the top of the window for a count of the number of cells modified! Or check Undo/Redo for count of cells that are changed. Get suspicious if the number of cells modified isn't what you would expect.{% endcapture %}
+{% capture check %}**Coherence Checks:** Once you click "okay" the operation will run--watch for the little yellow notification at the top of the window for a count of the number of cells modified! Or check Undo/Redo for count of cells that are changed. Get suspicious if the number of cells modified isn't what you would expect.
+{% endcapture %}
 {% include alert.html text=check color="warning" %}

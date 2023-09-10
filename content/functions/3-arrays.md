@@ -5,7 +5,7 @@ title: Array Functions
 nav: Arrays
 ---
 
-In Refine an *Array*{:.term} is data structure representing an ordered set of values, e.g. `["example", "two", "three"]`.
+In Refine an *Array*{:.term} is data structure representing an ordered set of values, displayed as a comma separated list enclosed by square brackets, e.g. `["example", "two", "three"]`.
 
 However, **cells can not directly store an array**.
 Instead, you will have to split a value to create an array, use [array functions](https://openrefine.org/docs/manual/grelfunctions#array-functions) to manipulate the data, and then join the array back into a string. 
@@ -33,7 +33,7 @@ Some expressions, such as using an index number or length, will result in a regu
 However, if the result of your expression is an array, you will need to reconstitute it into a string using `join()`. 
 This could be the same pattern that you used to split, a new character to create a string, or unique deliminator useful for future splits, e.g. `.join("|||")` or `.join(";")`. 
 
-If you forget to add the join, the result of the transformation will be an error. Depending on what "On error" option you chose, it may not be clear that your expression did not do anything!
+If you forget to add the join, the result of the transformation will be an error. Depending on what "On error" option you chose, it may not be clear that your expression didn't work!
 
 ## Examples of Common Array Functions
 

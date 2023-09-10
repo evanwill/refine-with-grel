@@ -26,3 +26,5 @@ GREL provides a variety of functions to manipulate and clean up string values.
     - combining multiple columns: `value.trim().toLowercase() + " " + cells["example"].value.trim().toLowercase()`
 - Create a new column as a unique id with leading zeros: `"row_id_" + "0000"[0,4-length(row.index +1)] + (row.index +1)`
 - Apply title case with hyphenated names: `value.replace("-"," || ").toTitlecase().replace(" || ","-")` (notice the strategic replace, use a temporary string that will be unique in the data to avoid unintended consequences!)
+- Create a URL to fetch data: `"https://example.com/api?keyword=" + value.trim().escape('url') + "&date=" + cells['year'].value.escape('url') + "&format=json"`
+

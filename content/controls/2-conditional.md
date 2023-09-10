@@ -18,9 +18,9 @@ Otherwise, the third argument will be used.
 
 The arguments can be string values or complete expressions providing flexibility to create complex outputs.
 
-{% include alert.html text="Keep in mind that most of these outputs can be achieved by using faceting/filtering and applying different transformations to the subsets. 
+{% include alert.html text="Keep in mind that many of these outputs can be achieved by using faceting/filtering and applying different transformations to the subsets. 
 Take a pragmatic approach to how difficult the expression is to write vs using facets. 
-However, having the operation represented as a conditional expression may help make your processing more reuseable." color="secondary" %}
+However, having the operation represented as a conditional expression may help make your processing more reuseable." color="info" %}
 
 ## Example Flowchart
 
@@ -28,13 +28,13 @@ Let's visualize this simple conditional, if the length of the cell's value is mo
 
 {% include figure.html img="conditional-example.svg" alt="flow diagram showing if(value.length() > 10, 'Big', 'Small)" %}
 
-## Common Conditions
+## Common Tests
 
 - To test numbers you can use operators such as `<` or `>`, e.g. `value.length() > 10`.
 - To test if two values are equal use double equal signs `==`, e.g. `value == "Dogs"`.
 - Test if the row is starred or flagged use built in variables, e.g. `row.starred` or `row.flagged`.
 - Test the cell type with `isBlank(value)`, `isNonBlank(value)`, `isNull(value)`, `isNotNull(value)`, `isNumeric(value)`. This can be a useful check to avoid errors in a further expression.
-- Test if the array contains a specific value using `inArray(a, s)`
+- Test if the array contains a specific value using `inArray(a, s)`.
 - Test string contents using:
     - `startsWith()` -- check using string only
     - `endsWith()` -- check using string only
@@ -67,26 +67,27 @@ null)))
 
 ## Filter 
 
-Filter is a function to subset an array based on conditions.
+Filter is a control to subset an array based on conditions.
 A filter expression looks like:
 
 `filter(expression, v, expressionTest)`
 
-The first argument is an express to create your array.
-The second argument is a variable name, this can be anything, to be used represent each array value in the next expression.
+The first argument is an expression to create your array.
+The second argument is a variable name to be used represent each array value in the next expression (this can be anything!).
 The third argument is an expression, using the variable name, that evaluates to true/false.
 
 Each item in the array will be tested using the condition.
 If true, the item will be added to a new output array. 
 
-For example, remove "dogs" from list of subject terms in a multi-valued field: `filter(value.split(";"),v,v.indexOf("dogs") < 0).join(";")`.
+For example, remove "dogs" from list of subject terms in a multi-valued field: `filter(value.split(";"), v, v.indexOf("dogs") < 0).join(";")`.
 
 ## Examples
 
 - Transform your stars into a column 
-    - Create new "starred" column using expression: `if(row.starred,"True", "False")`
-    - Create new "issues" column using expression: `if(row.starred.and(row.flagged),"True","False")` 
+    - Create new "starred" column using expression: `if(row.starred, "Starred", "")`
+    - Create new "issues" column using expression: `if(row.starred.and(row.flagged), "True", "False")` 
 - Compare two columns 
     - Create new "equal" column using expression: `if(cells["column1"].value == cells["column2"].value, "True", "False")`
 - Evaluate the number of blank cells in a row
     - Create new custom numeric facet using expression: `filter(row.columnNames,c,isBlank(cells[c].value)).length()`
+- Remove blank items from an multi-valued field: `filter(value.split(";"), v, isNonBlank(v)).join(";")` (this can be handy to prep an array for another function)
