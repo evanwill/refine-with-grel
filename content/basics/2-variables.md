@@ -17,6 +17,7 @@ The most commonly used [variables](https://openrefine.org/docs/manual/expression
 
 Less commonly used: 
 
+- `columnName` -- name of the column of the current cell.
 - `row` -- access details associated with the row. 
     - e.g. `row.flagged` (true/false), `row.starred` (true/false), `row.columnNames` (array of all columns).
 - `row.record` -- access [fields for record](https://openrefine.org/docs/manual/expressions#record) containing the current row.

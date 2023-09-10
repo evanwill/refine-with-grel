@@ -22,3 +22,30 @@ For example, to extract all the keywords from a cell with the JSON
 `{"language": "en", "keywords": [{"text": "dogs", "relevance": 0.979292}, {"text": "muffins", "relevance": 0.977987}, {"text": "cats", "relevance": 0.969001}, {"text": "idaho", "relevance": 0.967973}] }`
 
 transform with `forEach(value.parseJson()["keywords"], v, v["text"]).join("; ")`, resulting in the new cell value of `dogs; muffins; cats; idaho`.
+
+## Demo Project
+
+A quick example using [Chronicling America search API](https://chroniclingamerica.loc.gov/about/api/). 
+
+Create a project from clipboard, pasting in this CSV:
+
+```
+state,year
+Idaho,1865
+Montana,1865
+Oregon,1865
+Washington,1865
+```
+
+From the "state" column, create a new column "url" using:
+
+`"https://chroniclingamerica.loc.gov/search/pages/results/?state=" + value.escape('url') + "&date1=" + cells['year'].value.escape('url') + "&date2=" + cells['year'].value.escape('url') + "&dateFilterType=yearRange&sequence=1&sort=date&rows=5&format=json"`
+
+From "url" column, fetch URLs into new column "results".
+
+The "results" will be the JSON response from the search API.
+
+On the "results" column, use `parseJson()` to explore the contents of the response.
+For example, we may want to extract the unique subject terms represented in the results: 
+
+`forEach(value.parseJson()["items"], a, a["subject"].join(";")).join(";").split(";").uniques().join("; ")`
