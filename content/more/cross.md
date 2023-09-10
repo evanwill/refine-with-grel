@@ -1,5 +1,5 @@
 ---
-section: Examples
+section: More
 nav_order: 2
 title: Cross Function
 nav: Cross
@@ -12,13 +12,13 @@ The function looks like:
 `cross(cell, projectName, columnName)`
 
 The second argument is the exact name of another project on your computer and the third argument is the exact name of column in that project. 
-To do a lookup with in the current project, you can give `""` for the second argument. 
+To do a lookup with in the current project, you can give `""` for the second argument--this allows you to pull data from the current rows based on matches.
 
 The cross will return an array that is the `row` objects for any matches between the current cell and the key column.
+That is, the current value is checked against all the values in the other project column, and can return zero or more matches.
 
 Keep in mind cross can't fuzzy match, and unlike reconciliation or clustering there isn't an interface to help manually select matches, so cross depends on clean key columns. 
-One option is to use the string clustering functions `fingerprint(s)` (trim whitespace, to lowercase, remove punctuation, diacritics / accents, sort words alphabetically) or `ngramFingerprint(s, n)` (create ngrams of the size n given, remove duplicates, sort alphabetically) to find matches in text values that are *close* to the same. 
-Create new columns with the fingerprints to use as key columns, then pull in the original values (not the fingerprint). 
+One option is to use the string clustering functions `fingerprint(s)` (trim whitespace, to lowercase, remove punctuation, diacritics / accents, sort words alphabetically) or `ngramFingerprint(s, n)` (create ngrams of the size n given, remove duplicates, sort alphabetically) to create your key columns to find matches in text values that are *close* to the same.
 However, since there isn't an interface (like facet clustering) it can be hard to evaluate the success of these methods.
 
 ## Use Examples

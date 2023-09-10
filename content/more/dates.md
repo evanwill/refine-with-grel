@@ -1,5 +1,5 @@
 ---
-section: Examples 
+section: More 
 nav_order: 4
 title: Dates
 ---
@@ -13,6 +13,6 @@ For example, if you had a column with reasonably well formatted dates in multipl
 
 `value.toDate().toString('yyyy-MM-dd')`
 
-If your dates are in unconventional formats or other languages, you can specify parsing options.
+If your dates are in unconventional formats or other languages, you can specify parsing options to avoid errors.
 Check the [Refine Date functions](https://openrefine.org/docs/manual/grelfunctions#date-functions) for details on the function or the [Java data syntax](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html).
 
