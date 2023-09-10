@@ -22,7 +22,7 @@ The arguments can be string values or complete expressions providing flexibility
 Take a pragmatic approach to how difficult the expression is to write vs using facets. 
 However, having the operation represented as a conditional expression may help make your processing more reuseable." color="info" %}
 
-## Example Flowchart
+### Example Flowchart
 
 Let's visualize this simple conditional, if the length of the cell's value is more than 10 characters, output "Big", otherwise output "Small": `if(value.length() > 10, 'Big', 'Small')`
 

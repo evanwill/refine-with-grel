@@ -5,8 +5,8 @@ title: Iteration (Loops)
 nav: Iteration
 ---
 
-GREL provides several controls for iterating through an array to apply an expression to each individual member. 
-This allows you to break up a string into an array, loop through the parts to transform, then rejoin to create your desired output.
+GREL provides several controls for iterating through an array applying an expression to each individual member. 
+This allows you to break up a string into an array, loop through the parts to transform, then rejoin to create your desired output--even more powerful processing options with arrays!
 
 ## forEach
 
@@ -21,10 +21,18 @@ The output will be another array.
 
 `forEachIndex(expressionArray, i, v, expression)` works in the same way, but adds the `i` which will be the index number for the individual item in the array as you loop through. 
 
+### Example Flowchart 
+
+Let's visualize using this simple forEach: starting from an multi-valued cell like "one;two;three", create an array, assign each item to the variable, apply the expression, then rejoin,
+`forEach(value.split(';'), v, v + ' potato').join(';')`.
+
+{% include figure.html img="foreach.svg" alt="" %}
+
 ## forRange
 
 Rather than iterating over an array, forRange steps through a series of numbers set by you, binding each step to a variable which is used in an expression.
 The results are output in a new array.
+The expression looks like:
 
 `forRange(numberFrom, numberTo, numberStep, v, expression)` 
 
