@@ -70,7 +70,7 @@ null)))
 Filter is a control to subset an array based on conditions.
 A filter expression looks like:
 
-`filter(expression, v, expressionTest)`
+`filter(expressionArray, v, expressionTest)`
 
 The first argument is an expression to create your array.
 The second argument is a variable name to be used represent each array value in the next expression (this can be anything!).
@@ -79,7 +79,7 @@ The third argument is an expression, using the variable name, that evaluates to 
 Each item in the array will be tested using the condition.
 If true, the item will be added to a new output array. 
 
-For example, remove "dogs" from list of subject terms in a multi-valued field: `filter(value.split(";"), v, v.indexOf("dogs") < 0).join(";")`.
+For example, remove any term that contains "dogs" from list of subject terms in a multi-valued field: `filter(value.split(";"), v, v.indexOf("dogs") < 0).join(";")`.
 
 ## Examples
 

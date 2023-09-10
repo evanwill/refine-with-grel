@@ -12,7 +12,7 @@ Before diving into writing expressions to transform data, let's look at general 
 ## Know Your Data
 
 - Explore your columns and values -- is there a data dictionary? Is there relationships between columns? Is there processing contexts that help explain current state? (e.g. data source from OCR, web harvest, or database exports)
-- Identify data anomalies and challenges -- are there outliers that don't make sense? Outliers in specific contexts? Inconsistent formats, unnecessary white space, extra characters, typos, incomplete records, multi-valued cells, etc... (e.g. use text length facet to check string fields)
+- Identify data anomalies and challenges -- are there outliers that don't make sense? Outliers in specific contexts? Inconsistent formats, unnecessary white space, extra characters, typos, incomplete records, multi-valued cells, etc... (e.g. use All column facets or text length facet to check string fields)
 - Record a *Coherence Check*{:.term} -- what is your expected number of rows? Always keep this number in mind as you work through the project.
 
 ## Filter and Subset 

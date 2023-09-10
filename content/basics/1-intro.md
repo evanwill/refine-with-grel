@@ -6,7 +6,7 @@ title: Expressions Basics
 ---
 
 To flexibly extend Refine's built in data exploration and transformation features, the system supports the use of *Expressions*{:.term} in a variety of contexts.
-Unlike a spreadsheet formulas that are stored in a cell and update dynamically, Refine's expressions are applied as an operation iterating over the rows of the data and outputting a result.
+Unlike a spreadsheet formulas that are stored in a cell and update dynamically, Refine's expressions are applied as an operation (like a scripting language) iterating over the rows of the data and outputting a result.
 
 The most common use is when transforming the cells in a column or creating a new column:
 
@@ -17,8 +17,6 @@ Less common uses:
 
 - *Facet > Custom text facet...*{:.ui-item} or *Custom numeric facet...*{:.ui-item} 
 - Click *"change"*{:.ui-item} on a currently applied facet
-- *Edit cells > Split*{:.ui-item} or *Join multi-valued cells...*{:.ui-item}
-- *Edit column > Split*{:.ui-item} or *Join*{:.ui-item} or *Add column by fetching URLs*{:.ui-item}
 - *Export > Templating...*{:.ui-item}
 
 {% capture view %}
