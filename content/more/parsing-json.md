@@ -23,6 +23,15 @@ For example, to extract all the keywords from a cell with the JSON
 
 transform with `forEach(value.parseJson()["keywords"], v, v["text"]).join("; ")`, resulting in the new cell value of `dogs; muffins; cats; idaho`.
 
+## Example 
+
+If you had cells with Getty vocab identifiers like `tgn/9225352`:
+
+- From the id column, create a new column "url" using `"https://vocab.getty.edu/" + value + ".json"`
+- From "url" column fetch URLs into new column "results".
+- On the "results" column, use `parseJson()` to explore the contents of the response.
+- For example, extract type label: `value.parseJson()["classified_as"][0]["_label"]`
+
 ## Demo Project
 
 A quick example using [Chronicling America search API](https://chroniclingamerica.loc.gov/about/api/). 
@@ -37,15 +46,7 @@ Oregon,1865
 Washington,1865
 ```
 
-From the "state" column, create a new column "url" using:
-
-`"https://chroniclingamerica.loc.gov/search/pages/results/?state=" + value.escape('url') + "&date1=" + cells['year'].value.escape('url') + "&date2=" + cells['year'].value.escape('url') + "&dateFilterType=yearRange&sequence=1&sort=date&rows=5&format=json"`
-
-From "url" column, fetch URLs into new column "results".
-
-The "results" will be the JSON response from the search API.
-
-On the "results" column, use `parseJson()` to explore the contents of the response.
-For example, we may want to extract the unique subject terms represented in the results: 
-
-`forEach(value.parseJson()["items"], a, a["subject"].join(";")).join(";").split(";").uniques().join("; ")`
+- From the "state" column, create a new column "url" using: `"https://chroniclingamerica.loc.gov/search/pages/results/?state=" + value.escape('url') + "&date1=" + cells['year'].value.escape('url') + "&date2=" + cells['year'].value.escape('url') + "&dateFilterType=yearRange&sequence=1&sort=date&rows=5&format=json"`
+- From "url" column, fetch URLs into new column "results". The "results" will be the JSON response from the search API.
+- On the "results" column, use `parseJson()` to explore the contents of the response.
+- For example, we may want to extract the unique subject terms represented in the results: `forEach(value.parseJson()["items"], a, a["subject"].join(";")).join(";").split(";").uniques().join("; ")`

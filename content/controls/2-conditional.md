@@ -91,3 +91,4 @@ For example, remove any term that contains "dogs" from list of subject terms in 
 - Evaluate the number of blank cells in a row
     - Create new custom numeric facet using expression: `filter(row.columnNames,c,isBlank(cells[c].value)).length()`
 - Remove blank items from an multi-valued field: `filter(value.split(";"), v, isNonBlank(v)).join(";")` (this can be handy to prep an array for another function)
+- Find all columns containing a pattern: `filter(row.columnNames, v, cells[v].value.toLowercase().contains("example")).join(";")`

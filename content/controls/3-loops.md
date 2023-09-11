@@ -54,4 +54,6 @@ The basic pattern would look like
     - Merge all columns in a row into a single cell: `forEach(row.columnNames, c, cells[c].value).join("|")`
     - Merge the first three columns: `forEach(row.columnNames[0,3], c, cells[c].value).join("|")`
     - Merge a set of columns: `forEach("colname1|colname2|colname3".split("|"), c, if(isBlank(cells[c]), "none", cells[c].value)).join("|")`
+    - Merge a set of repeating columns with numbers in the name: `forRange(1, 5, 1, r, cells["Artist Name " + r].value).join("|")`
+    - Note: most of this can be done visually using *Edit column > Join columns...*{:.ui-item}, however it may be easier to do programmatically or to use the results in further expression.
 - Iterate in a Json array to retrieve multiple keys: `forEach(value.parseJson().items, v, v.city[0] + v.county[0]).join("|")`
