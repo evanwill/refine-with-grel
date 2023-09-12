@@ -1,0 +1,30 @@
+{% comment %}
+
+    Bootstrap question, https://getbootstrap.com/docs/5.1/components/card/
+
+    e.g. --> {% include question.html text="Some interesting text" header="Example card" %}
+    
+    Options:
+    - "header" = card header text (in bar above card content)
+    - "text" = main card text, can use markdown formatting. Use a Liquid capture to add more complex content.
+    - "solution" = displayed in the collapse
+
+{%- endcomment -%}
+<div class="card mb-3">
+    <div class="h4 card-header">{{ include.header }}</div>
+    <div class="card-body">
+        <div class="card-text">
+            {{ include.text | markdownify }}
+        </div>
+        
+        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ include.header | slugify }}" aria-expanded="false" aria-controls="collapseExample">
+            View Solution
+        </button>
+        <div class="collapse" id="collapse{{ include.header | slugify }}">
+          <div class="card card-body">
+            {{ include.solution | markdownify }}
+          </div>
+        </div>
+    </div>
+</div>
+
