@@ -16,3 +16,9 @@ For example, if you had a column with reasonably well formatted dates in multipl
 If your dates are in unconventional formats or other languages, you can specify parsing options to avoid errors.
 Check the [Refine Date functions](https://openrefine.org/docs/manual/grelfunctions#date-functions) for details on the function or the [Java data syntax](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html).
 
+------------
+
+{% include question.html header="pi_dogs dates"
+text='Clean up the "Date or Range" column and convert to ISO date yyyy-mm-dd'
+solution='Check for values like "aft." that will break parsing. Then create new column using  
+`forEach(value.split("-"), d, if(d.trim().length() > 4, d.trim().toDate().toString("yyyy-MM-dd"), d.trim())).join(" - ")`' %}

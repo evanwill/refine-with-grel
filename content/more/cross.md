@@ -43,3 +43,11 @@ For example, to access multiple matches, add a forEach:
 For multiple matches, with multiple columns: 
 
 `forEach(cell.cross("other_project", "key_column"), r, forEach("colname1|colname2|colname3".split("|"), c, r.cells[c].value).join(";")).join("|")`
+
+-------------
+
+{% include question.html header="pi_dogs pma_cataloguedeluxeo00unse cross"
+text="Are any of the artists listed in pi_dogs represented in pma_cataloguedeluxeo00unse?"
+solution='In pi_dogs, create a clean version of "Artist_Name" that contains just the name. 
+Then in both projects create new column from the artists names using `value.fingerprint()`.
+Then on pi_dogs, from the "artist_fingerprint" column, create a cross column using `cell.cross("pma_cataloguedeluxeo00unse", "artist_fingerprint").length()`.' %}

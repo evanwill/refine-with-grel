@@ -87,8 +87,31 @@ For example, remove any term that contains "dogs" from list of subject terms in 
     - Create new "starred" column using expression: `if(row.starred, "Starred", "")`
     - Create new "issues" column using expression: `if(row.starred.and(row.flagged), "True", "False")` 
 - Compare two columns 
-    - Create new "equal" column using expression: `if(cells["column1"].value == cells["column2"].value, "True", "False")`
+    - Create new "equal" column using expression: `if(cells["column1"].value == cells["column2"].value, "true", "false")`
 - Evaluate the number of blank cells in a row
     - Create new custom numeric facet using expression: `filter(row.columnNames,c,isBlank(cells[c].value)).length()`
 - Remove blank items from an multi-valued field: `filter(value.split(";"), v, isNonBlank(v)).join(";")` (this can be handy to prep an array for another function)
 - Find all columns containing a pattern: `filter(row.columnNames, v, cells[v].value.toLowercase().contains("example")).join(";")`
+
+----------
+
+{% capture solution %}
+Use multiple conditions:
+
+```
+if(cells.Description.value.contains(/^Born /), 
+
+if(isNonBlank(value), value + ". " + cells.Description.value, cells.Description.value),
+
+value )
+```
+
+{% endcapture %}
+{% include question.html header="pma_cataloguedeluxeo00unse Description Field"
+text='"Description" column seems to have two types: descriptions of the item or ones that start with "Born " describing the artist (explore by filter on "born" and invert). Create a new column "artist_description" that combines the artist descriptions with the current "Artist_Info" values.'
+solution=solution %}
+
+{% include question.html header="pma_cataloguedeluxeo00unse Item Num"
+text='Is "Item_Num" the same as "Desc_Num"? Create a custom text facet to compare.'
+solution='`if(value.toString() == cells["Desc_Num"].value.replace(".",""), "true", "false")`'
+%}

@@ -55,3 +55,9 @@ For example, if we had a column with multi-valued cells representing lists of it
 | Remove first and last | `value.split(";")[1,-1].join(";")` | "cats;muffins" |
 | Get the second and third items | `value.split(";").slice(1,3).join(";")` | "cats;muffins" |
 {:.table .table-bordered}
+
+-------------
+
+{% include question.html header="pi_dogs identifier"
+text='Extract the identifier from the "Document" column.'
+solution='One method `value.split(",")[0].split(" ")[-1]`' %}
