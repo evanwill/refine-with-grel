@@ -18,6 +18,8 @@ Check the [Refine Date functions](https://openrefine.org/docs/manual/grelfunctio
 
 ------------
 
+## Exercises 
+
 {% include question.html header="pi_dogs dates"
 text='Clean up the "Date or Range" column and convert to ISO date yyyy-mm-dd'
 solution='Check for values like "aft." that will break parsing. Then create new column using  

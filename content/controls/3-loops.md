@@ -60,6 +60,8 @@ The basic pattern would look like
 
 --------
 
+## Exercises 
+
 {% include question.html header="pi_dogs combine artists"
 text='Combine the multiple "Artist Name" columns into a single multi-valued column.'
 solution='Use forRange to generate the numbers: `forRange(1, 5, 1, r, cells["Artist Name " + r].value).join("|")`' %}

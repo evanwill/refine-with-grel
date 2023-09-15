@@ -46,6 +46,8 @@ For multiple matches, with multiple columns:
 
 -------------
 
+## Exercises 
+
 {% include question.html header="pi_dogs pma_cataloguedeluxeo00unse cross"
 text="Are any of the artists listed in pi_dogs represented in pma_cataloguedeluxeo00unse?"
 solution='In pi_dogs, create a clean version of "Artist_Name" that contains just the name. 

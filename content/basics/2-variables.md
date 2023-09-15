@@ -38,6 +38,8 @@ Let's combine the values from different columns to create a unique id:
 
 ---------
 
+## Exercises 
+
 {% include question.html header="pi_dogs annotations"
 text='The table has some extra columns at the end without names. The content seems like it belongs in the last named column, "Annotations". Move the values over.'
 solution='On "Annotations" column, transform cells using `cells["Column 64"].value`' %}

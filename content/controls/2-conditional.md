@@ -95,6 +95,8 @@ For example, remove any term that contains "dogs" from list of subject terms in 
 
 ----------
 
+## Exercises 
+
 {% capture solution %}
 Use multiple conditions:
 

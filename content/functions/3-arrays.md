@@ -58,6 +58,8 @@ For example, if we had a column with multi-valued cells representing lists of it
 
 -------------
 
+## Exercises 
+
 {% include question.html header="pi_dogs identifier"
 text='Extract the identifier from the "Document" column.'
 solution='One method `value.split(",")[0].split(" ")[-1]`' %}
