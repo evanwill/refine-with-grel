@@ -44,7 +44,7 @@ Let's visualize this simple conditional, if the length of the cell's value is mo
 
 ## Boolean Operators
 
-You can combine conditions with [Boolean functions](https://openrefine.org/docs/manual/grelfunctions#boolean-functions) to build more complex tests, using `and()`, `or()`, `not()`, or `xor()`.
+You can combine conditions with [Boolean functions](https://openrefine.org/docs/manual/grelfunctions#boolean-functions){:.docs-link} to build more complex tests, using `and()`, `or()`, `not()`, or `xor()`.
 It is easiest to string boolean conditions together using dot notation. 
 Each boolean function will contain an argument that is an expression that evaluates to true/false.
 

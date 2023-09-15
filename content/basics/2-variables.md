@@ -5,9 +5,9 @@ title: GREL Variables
 nav: Variables
 ---
 
-Refine provides a set of *variables*{:.term} to access your data inside of expressions.
+Refine provides a set of [*Variables*](https://openrefine.org/docs/manual/expressions#variables){:.term .docs-link} to access your data inside of expressions.
 
-The most commonly used [variables](https://openrefine.org/docs/manual/expressions#variables) include: 
+The most commonly used variables include: 
 
 - `value` -- the value of the current cell, generally your starting point!
 - `cells` -- an array of all the cells of the current row. 
@@ -20,8 +20,8 @@ Less commonly used:
 - `columnName` -- name of the column of the current cell.
 - `row` -- access details associated with the row. 
     - e.g. `row.flagged` (true/false), `row.starred` (true/false), `row.columnNames` (array of all columns).
-- `row.record` -- access [fields for record](https://openrefine.org/docs/manual/expressions#record) containing the current row.
-- `cell.recon` -- access [reconciliation fields](https://openrefine.org/docs/manual/expressions#reconciliation) for the current cell.
+- `row.record` -- access [fields for record](https://openrefine.org/docs/manual/expressions#record){:.docs-link} containing the current row.
+- `cell.recon` -- access [reconciliation fields](https://openrefine.org/docs/manual/expressions#reconciliation){:.docs-link} for the current cell.
 
 {% include figure.html img="refine-variables.png" alt="row of spreadsheet table showing cell labelled with 'value' and 'cells[two].value' in the next cell to demonstrate variables" %}
 

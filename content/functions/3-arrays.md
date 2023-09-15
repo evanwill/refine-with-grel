@@ -8,7 +8,7 @@ nav: Arrays
 In Refine an *Array*{:.term} is data structure representing an ordered set of values, displayed as a comma separated list enclosed by square brackets, e.g. `["example", "two", "three"]`.
 
 However, **cells can not directly store an array**.
-Instead, you will have to split a value to create an array, use [array functions](https://openrefine.org/docs/manual/grelfunctions#array-functions) to manipulate the data, and then join the array back into a string. 
+Instead, you will have to split a value to create an array, use [array functions](https://openrefine.org/docs/manual/grelfunctions#array-functions){:.docs-link} to manipulate the data, and then join the array back into a string. 
 
 If you think of the patterns in your strings as potential chunks in an array, this becomes a surprisingly powerful approach for wrangling data!
 Puzzles like getting the last word from a the sentence, the stuff after the coma, the unique words, or the filename from a URL become much easier.
