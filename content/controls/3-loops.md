@@ -26,7 +26,7 @@ The output will be another array.
 Let's visualize using this simple forEach: starting from an multi-valued cell like "one;two;three", create an array, assign each item to the variable, apply the expression, then rejoin,
 `forEach(value.split(';'), v, v + ' potato').join(';')`.
 
-{% include figure.html img="foreach.svg" alt="" %}
+{% include figure.html img="foreach.svg" alt="flowchart breaking down the parts of the express forEach(value.split(';'), v, v + ' potato').join(';')" %}
 
 ## forRange
 

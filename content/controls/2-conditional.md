@@ -26,7 +26,7 @@ However, having the operation represented as a conditional expression may help m
 
 Let's visualize this simple conditional, if the length of the cell's value is more than 10 characters, output "Big", otherwise output "Small": `if(value.length() > 10, 'Big', 'Small')`
 
-{% include figure.html img="conditional-example.svg" alt="flow diagram showing if(value.length() > 10, 'Big', 'Small)" %}
+{% include figure.html img="conditional-example.svg" alt="flow diagram showing parts of the expression if(value.length() > 10, 'Big', 'Small)" %}
 
 ## Common Tests
 
