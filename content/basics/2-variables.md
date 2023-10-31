@@ -42,8 +42,8 @@ Let's combine the values from different columns to create a unique id:
 
 {% include question.html header="pi_dogs annotations"
 text='The table has some extra columns at the end without names. The content seems like it belongs in the last named column, "Annotations". Move the values over.'
-solution='On "Annotations" column, transform cells using `cells["Column 64"].value`' %}
+solution='On "Annotations" column, first facet by blank to ensure you are not over writing anything, then transform cells using `cells["Column 64"].value`.' %}
 
 {% include question.html header="pma_cataloguedeluxeo00unse id"
 text="Create a new unique id field for all rows based on a string and some existing fields." 
-solution='From "Page_Num", create a new column using `"deluxe_" + value + "_" + cells.Item_Num.value`. Check for with text facet for unique-ness.' %}
+solution='From "Page_Num", create a new column using `"deluxe_" + value + "_" + cells.Item_Num.value`. Check for with duplicates facet for unique-ness.' %}

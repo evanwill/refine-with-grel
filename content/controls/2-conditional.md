@@ -98,7 +98,7 @@ For example, remove any term that contains "dogs" from list of subject terms in 
 ## Exercises 
 
 {% capture solution %}
-Use multiple conditions:
+Creating a new column from the current "Artist_Info" column, use multiple conditions to add "Description" values that start with `Born ` to the end of non-blank values:
 
 ```
 if(cells.Description.value.contains(/^Born /), 
@@ -110,10 +110,10 @@ value )
 
 {% endcapture %}
 {% include question.html header="pma_cataloguedeluxeo00unse Description Field"
-text='"Description" column seems to have two types: descriptions of the item or ones that start with "Born " describing the artist (explore by filter on "born" and invert). Create a new column "artist_description" that combines the artist descriptions with the current "Artist_Info" values.'
+text='"Description" column seems to have two types: descriptions of the item or ones that start with "Born " describing the artist (explore by text filter on "born" and invert). Create a new column "artist_description" that combines the artist descriptions with the current "Artist_Info" values.'
 solution=solution %}
 
 {% include question.html header="pma_cataloguedeluxeo00unse Item Num"
 text='Is "Item_Num" the same as "Desc_Num"? Create a custom text facet to compare.'
-solution='`if(value.toString() == cells["Desc_Num"].value.replace(".",""), "true", "false")`'
+solution='On the "Item_Num" column, create a custom facet using expression: `if(value.toString() == cells["Desc_Num"].value.replace(".",""), "true", "false")`'
 %}
